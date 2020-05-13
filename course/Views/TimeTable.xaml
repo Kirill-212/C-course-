@@ -1,0 +1,120 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:course.Views"
+        xmlns:Models="clr-namespace:course.Models" x:Class="course.Views.TimeTable"
+        mc:Ignorable="d"
+        Title="TimeTable" Height="500" Width="1500" ResizeMode="NoResize" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="chek" Grid.Column="2" Text="{Binding StatusTimeTable, UpdateSourceTrigger=PropertyChanged}" Height="40" Margin="0,0,0,-190" />
+        <TextBlock Text="День недели" TextAlignment="Center" Height="15"  Margin="0,0,0,290"   />
+        <ComboBox Text="{Binding Day_of_the_week, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" FontSize="10" Height="19" Margin="0,0,0,240" IsReadOnly="True">
+            <TextBlock Text="понедельник"/>
+                <TextBlock Text="вторник"/>
+                <TextBlock Text="среда"/>
+                <TextBlock Text="четверг"/>
+                <TextBlock Text="пятница"/>
+                <TextBlock Text="суббота"/>
+                <TextBlock Text="воскресенье"/>
+        </ComboBox>
+        <TextBlock Text="Неделя" TextAlignment="Center" Height="15"  Margin="0,0,0,190"   />
+        <ComboBox Text="{Binding Week, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" FontSize="10" Height="19" Margin="0,0,0,150" IsReadOnly="True">
+            <TextBlock Text="Первая"/>
+            <TextBlock Text="Вторая"/>
+        </ComboBox>
+        <TextBlock Text="Время" TextAlignment="Center" Height="15"  Margin="0,0,0,110"   />
+        <ComboBox Text="{Binding Time, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" FontSize="10" Height="19" Margin="0,0,0,60" IsReadOnly="True">
+            <TextBlock Text="8.00-9.35"/>
+            <TextBlock Text="9.50-11.25"/>
+            <TextBlock Text="11.40-13.15"/>
+            <TextBlock Text="13.50-15.25"/>
+            <TextBlock Text="15.40-17.15"/>
+            <TextBlock Text="17.30-19.05"/>
+            <TextBlock Text="19.20-20.55"/>
+        </ComboBox>
+        <TextBlock Text="Название предмета" TextAlignment="Center"  Height="15" Margin="0,0,0,20" />
+        <TextBox Text="{Binding Subject, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,-40" Height="20"/>
+        <Button  Height="25"  Margin="0,0,0,-150" Content="Добавить" Command="{Binding AddSubCommand}"  />
+        <Button  Height="25"  Margin="0,0,0,-220" Content="Показать" Command="{Binding viewTimeTable}"  />
+        <Button  Height="25"  Margin="0,0,0,-290" Content="Очистить всё расписание" Command="{Binding ClearTimeTableCommand}"  />
+
+        <ScrollViewer Grid.Column="1">
+            <StackPanel>
+                <TextBlock  Margin="10" FontSize="22" FontWeight="Medium"/>
+                <StackPanel Margin="20 0">
+                    <ListBox x:Name="ListViewProducts" ItemsSource="{Binding _TimeTable,Mode=Default}" ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                             ScrollViewer.HorizontalScrollBarVisibility="Disabled"   SelectedIndex="{Binding SelectIndexTB}" >
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Margin="10" Width="450" Height="auto" BorderThickness="2" BorderBrush="Black" >
+                                    <StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="День недели: " />
+                                            <TextBlock Height="25" Text="{Binding  day_of_the_week}"></TextBlock>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="Неделя: "/>
+                                            <TextBlock Height="25" Text="{Binding week}"></TextBlock>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Height="25"  TextWrapping ="Wrap" Text="{Binding time_and_sub8}"></TextBlock>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Height="25"  TextWrapping ="Wrap" Text="{Binding time_and_sub9}"></TextBlock>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Height="25"  TextWrapping ="Wrap" Text="{Binding time_and_sub11}"></TextBlock>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Height="25"  TextWrapping ="Wrap" Text="{Binding time_and_sub13}"></TextBlock>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Height="25"  TextWrapping ="Wrap" Text="{Binding time_and_sub15}"></TextBlock>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Height="25"  TextWrapping ="Wrap" Text="{Binding time_and_sub17}"></TextBlock>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Height="25"  TextWrapping ="Wrap" Text="{Binding time_and_sub19}"></TextBlock>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+
+
+
+
+
+
+
+
+        <TextBlock Text="Название предмета" TextAlignment="Center" Grid.Column="3"  Height="15" Margin="0,0,0,150" />
+        <TextBox Text="{Binding SubjectCH, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Margin="0,0,0,100" Height="20"/>
+        <TextBlock Text="Время" TextAlignment="Center" Height="15"  Margin="0,0,0,250"  Grid.Column="3" />
+        <ComboBox Text="{Binding TimeCH, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3"  FontSize="10" Height="19" Margin="0,0,0,200" IsReadOnly="True">
+            <TextBlock Text="8.00-9.35"/>
+            <TextBlock Text="9.50-11.25"/>
+            <TextBlock Text="11.40-13.15"/>
+            <TextBlock Text="13.50-15.25"/>
+            <TextBlock Text="15.40-17.15"/>
+            <TextBlock Text="17.30-19.05"/>
+            <TextBlock Text="19.20-20.55"/>
+        </ComboBox>
+        <Button  Height="25"  Margin="0,0,0,-40" Content="Сохранить изменения" Command="{Binding saveCh}" Grid.Column="3"  />
+
+
+
+    </Grid>
+</Window>

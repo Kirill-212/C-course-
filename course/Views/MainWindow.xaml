@@ -1,0 +1,30 @@
+﻿<Window x:Class="course.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:course"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="500" ResizeMode="NoResize">
+    <Grid Background="black">
+        <Grid.RowDefinitions  >
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition ></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="207*"></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Регистрация/Авторизация" Foreground="White" Margin="170 0 0 0" Grid.ColumnSpan="2" />
+        <StackPanel Grid.Row="1" Height="100" Margin="0,0,0,171" Grid.ColumnSpan="2" >
+            <TextBlock Text="Логин" Foreground="White" />
+            <TextBox Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Text="Пароль" Foreground="White" />
+            <TextBox Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" ToolTip="Если при регистрации не был указан пароль то он будет (0)"/>
+            <TextBlock x:Name="chek" Text="{Binding Authorization, UpdateSourceTrigger=PropertyChanged}" Foreground="White"  ></TextBlock>
+        </StackPanel>
+        <Button x:Name="button2" Height="30" Width="250" Margin="0 0 0 0" Content="Вход"  Foreground="White" Background="Black" Grid.Row="1" Command="{Binding entrance}" />
+        <Button x:Name="button1" Height="30" Width="250" Margin="0 100 0 0" Content="Регистрация"  Foreground="White" Background="Black" Grid.Row="1" Click="OpenWinReg"  />
+    </Grid>
+</Window>
