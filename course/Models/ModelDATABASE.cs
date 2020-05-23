@@ -7,9 +7,16 @@
 
     public partial class ModelDATABASE : DbContext
     {
-        public ModelDATABASE()
-            : base("name=ModelDATABASE")
+        private static ModelDATABASE instance;
+        private ModelDATABASE()
+            : base("name=ModelDATABASE4")
         {
+        }
+        public static ModelDATABASE getInstance()
+        {
+            if (instance == null)
+                instance = new ModelDATABASE();
+            return instance;
         }
 
         public virtual DbSet<Date> Dates { get; set; }
@@ -34,10 +41,6 @@
                 .HasMany(e => e.Расходы)
                 .WithRequired(e => e.User)
                 .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Расходы>()
-                .Property(e => e.Стоимость)
-                .HasPrecision(19, 4);
         }
     }
 }

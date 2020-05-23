@@ -24,8 +24,30 @@ namespace course.Models
         [StringLength(50)]
         public string Периодиность { get; set; }
 
-        [Column(TypeName = "money")]
-        public decimal Стоимость { get; set; }
+        public int Стоимость { get; set; }
+
+        public virtual User User { get; set; }
+    }
+
+    public partial class CopyOfРасходы
+    {
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int id { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string Логин { get; set; }
+
+        [Column("Группы товара")]
+        [Required]
+        [StringLength(50)]
+        public string Группы_товара { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string Периодиность { get; set; }
+
+        public int Стоимость { get; set; }
 
         public virtual User User { get; set; }
     }

@@ -9,12 +9,14 @@ namespace course.ViewModels.Tasks
 {
     class ChangeCommand: ICommand
     {
-        public event EventHandler CanExecuteChanged;
         private Action _execute;
         public ChangeCommand(Action execute)
         {
             _execute = execute;
         }
+
+        public event EventHandler CanExecuteChanged;
+
         public bool CanExecute(object parameter)
         {
             return true;

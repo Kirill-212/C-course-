@@ -13,4 +13,11 @@
         <Setter Property="Foreground" Value="White" />
         <Setter Property="BorderBrush" Value="White" />
     </Style>
+    <Style x:Key="StackPanelStyle" TargetType="StackPanel">
+        <Setter Property="Background" Value="Black" />
+    </Style>
+    <Style x:Key="ListBoxStyle" TargetType="ListBox">
+        <Setter Property="Background" Value="Black" />
+
+    </Style>
 </ResourceDictionary>

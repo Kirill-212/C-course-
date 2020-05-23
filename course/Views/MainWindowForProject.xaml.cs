@@ -45,10 +45,6 @@ namespace course
             Application.Current.Resources.MergedDictionaries.Add(resourceDict);
         }
 
-        private void openTaskwin(object sender, RoutedEventArgs e)
-        {
-            Tasks tasks = new Tasks();
-            tasks.ShowDialog();
-        }
+     
     }
 }

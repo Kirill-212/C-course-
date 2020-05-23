@@ -9,12 +9,14 @@ namespace course.ViewModels.main
 {
     class ViewMainCommand : ICommand
     {
-        public event EventHandler CanExecuteChanged;
         private Action _execute;
         public ViewMainCommand(Action execute)
         {
             _execute = execute;
         }
+
+        public event EventHandler CanExecuteChanged;
+
         public bool CanExecute(object parameter)
         {
             return true;

@@ -6,15 +6,15 @@
         xmlns:local="clr-namespace:course.Views"
         xmlns:Models="clr-namespace:course.Models" x:Class="course.Views.TimeTable"
         mc:Ignorable="d"
-        Title="TimeTable" Height="500" Width="1500" ResizeMode="NoResize" >
+        Title="TimeTable" Height="500" Width="1500" ResizeMode="NoResize" Style="{DynamicResource WindowStyle}" >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock x:Name="chek" Grid.Column="2" Text="{Binding StatusTimeTable, UpdateSourceTrigger=PropertyChanged}" Height="40" Margin="0,0,0,-190" />
-        <TextBlock Text="День недели" TextAlignment="Center" Height="15"  Margin="0,0,0,290"   />
+        <TextBlock x:Name="chek" Grid.Column="2" Text="{Binding StatusTimeTable, UpdateSourceTrigger=PropertyChanged}" Height="40" Margin="0,0,0,-190" Style="{DynamicResource TextBlockStyle}" />
+        <TextBlock Text="День недели" TextAlignment="Center" Height="15"  Margin="0,0,0,290" Style="{DynamicResource TextBlockStyle}"  />
         <ComboBox Text="{Binding Day_of_the_week, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" FontSize="10" Height="19" Margin="0,0,0,240" IsReadOnly="True">
             <TextBlock Text="понедельник"/>
                 <TextBlock Text="вторник"/>
@@ -24,12 +24,12 @@
                 <TextBlock Text="суббота"/>
                 <TextBlock Text="воскресенье"/>
         </ComboBox>
-        <TextBlock Text="Неделя" TextAlignment="Center" Height="15"  Margin="0,0,0,190"   />
+        <TextBlock Text="Неделя" TextAlignment="Center" Height="15"  Margin="0,0,0,190"  Style="{DynamicResource TextBlockStyle}" />
         <ComboBox Text="{Binding Week, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" FontSize="10" Height="19" Margin="0,0,0,150" IsReadOnly="True">
             <TextBlock Text="Первая"/>
             <TextBlock Text="Вторая"/>
         </ComboBox>
-        <TextBlock Text="Время" TextAlignment="Center" Height="15"  Margin="0,0,0,110"   />
+        <TextBlock Text="Время" TextAlignment="Center" Height="15"  Margin="0,0,0,110" Style="{DynamicResource TextBlockStyle}"  />
         <ComboBox Text="{Binding Time, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" FontSize="10" Height="19" Margin="0,0,0,60" IsReadOnly="True">
             <TextBlock Text="8.00-9.35"/>
             <TextBlock Text="9.50-11.25"/>
@@ -39,50 +39,50 @@
             <TextBlock Text="17.30-19.05"/>
             <TextBlock Text="19.20-20.55"/>
         </ComboBox>
-        <TextBlock Text="Название предмета" TextAlignment="Center"  Height="15" Margin="0,0,0,20" />
+        <TextBlock Text="Название предмета" TextAlignment="Center"  Height="15" Margin="0,0,0,20" Style="{DynamicResource TextBlockStyle}" />
         <TextBox Text="{Binding Subject, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,-40" Height="20"/>
-        <Button  Height="25"  Margin="0,0,0,-150" Content="Добавить" Command="{Binding AddSubCommand}"  />
-        <Button  Height="25"  Margin="0,0,0,-220" Content="Показать" Command="{Binding viewTimeTable}"  />
-        <Button  Height="25"  Margin="0,0,0,-290" Content="Очистить всё расписание" Command="{Binding ClearTimeTableCommand}"  />
+        <Button  Height="25"  Margin="0,0,0,-150" Content="Добавить" Command="{Binding AddSubCommand}" Style="{DynamicResource ButtonStyle}"  />
+        <Button  Height="25"  Margin="0,0,0,-220" Content="Показать" Command="{Binding viewTimeTable}" Style="{DynamicResource ButtonStyle}"  />
+        <Button  Height="25"  Margin="0,0,0,-290" Content="Очистить всё расписание" Command="{Binding ClearTimeTableCommand}" Style="{DynamicResource ButtonStyle}"  />
 
         <ScrollViewer Grid.Column="1">
-            <StackPanel>
+            <StackPanel   Style="{DynamicResource StackPanelStyle}" >
                 <TextBlock  Margin="10" FontSize="22" FontWeight="Medium"/>
                 <StackPanel Margin="20 0">
                     <ListBox x:Name="ListViewProducts" ItemsSource="{Binding _TimeTable,Mode=Default}" ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                             ScrollViewer.HorizontalScrollBarVisibility="Disabled"   SelectedIndex="{Binding SelectIndexTB}" >
+                             ScrollViewer.HorizontalScrollBarVisibility="Disabled"   SelectedIndex="{Binding SelectIndexTB}"  Style="{DynamicResource ListBoxStyle}"  >
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <Border Margin="10" Width="450" Height="auto" BorderThickness="2" BorderBrush="Black" >
                                     <StackPanel>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="День недели: " />
-                                            <TextBlock Height="25" Text="{Binding  day_of_the_week}"></TextBlock>
+                                            <TextBlock Text="День недели: " Style="{DynamicResource TextBlockStyle}"  />
+                                            <TextBlock Height="25" Text="{Binding  day_of_the_week}"  Style="{DynamicResource TextBlockStyle}" ></TextBlock>
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
                                             <TextBlock Text="Неделя: "/>
-                                            <TextBlock Height="25" Text="{Binding week}"></TextBlock>
+                                            <TextBlock Height="25" Text="{Binding week}"  Style="{DynamicResource TextBlockStyle}" ></TextBlock>
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Height="25"  TextWrapping ="Wrap" Text="{Binding time_and_sub8}"></TextBlock>
+                                            <TextBlock Height="25"  TextWrapping ="Wrap" Text="{Binding time_and_sub8}"  Style="{DynamicResource TextBlockStyle}" ></TextBlock>
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Height="25"  TextWrapping ="Wrap" Text="{Binding time_and_sub9}"></TextBlock>
+                                            <TextBlock Height="25"  TextWrapping ="Wrap" Text="{Binding time_and_sub9}"   Style="{DynamicResource TextBlockStyle}" ></TextBlock>
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Height="25"  TextWrapping ="Wrap" Text="{Binding time_and_sub11}"></TextBlock>
+                                            <TextBlock Height="25"  TextWrapping ="Wrap" Text="{Binding time_and_sub11}"  Style="{DynamicResource TextBlockStyle}" ></TextBlock>
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Height="25"  TextWrapping ="Wrap" Text="{Binding time_and_sub13}"></TextBlock>
+                                            <TextBlock Height="25"  TextWrapping ="Wrap" Text="{Binding time_and_sub13}"  Style="{DynamicResource TextBlockStyle}" ></TextBlock>
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Height="25"  TextWrapping ="Wrap" Text="{Binding time_and_sub15}"></TextBlock>
+                                            <TextBlock Height="25"  TextWrapping ="Wrap" Text="{Binding time_and_sub15}"  Style="{DynamicResource TextBlockStyle}" ></TextBlock>
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Height="25"  TextWrapping ="Wrap" Text="{Binding time_and_sub17}"></TextBlock>
+                                            <TextBlock Height="25"  TextWrapping ="Wrap" Text="{Binding time_and_sub17}"  Style="{DynamicResource TextBlockStyle}" ></TextBlock>
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Height="25"  TextWrapping ="Wrap" Text="{Binding time_and_sub19}"></TextBlock>
+                                            <TextBlock Height="25"  TextWrapping ="Wrap" Text="{Binding time_and_sub19}"  Style="{DynamicResource TextBlockStyle}" ></TextBlock>
                                         </StackPanel>
                                     </StackPanel>
                                 </Border>
@@ -100,9 +100,9 @@
 
 
 
-        <TextBlock Text="Название предмета" TextAlignment="Center" Grid.Column="3"  Height="15" Margin="0,0,0,150" />
+        <TextBlock Text="Название предмета" TextAlignment="Center" Grid.Column="3"  Height="15" Margin="0,0,0,150" Style="{DynamicResource TextBlockStyle}" />
         <TextBox Text="{Binding SubjectCH, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Margin="0,0,0,100" Height="20"/>
-        <TextBlock Text="Время" TextAlignment="Center" Height="15"  Margin="0,0,0,250"  Grid.Column="3" />
+        <TextBlock Text="Время" TextAlignment="Center" Height="15"  Margin="0,0,0,250"  Grid.Column="3" Style="{DynamicResource TextBlockStyle}" />
         <ComboBox Text="{Binding TimeCH, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3"  FontSize="10" Height="19" Margin="0,0,0,200" IsReadOnly="True">
             <TextBlock Text="8.00-9.35"/>
             <TextBlock Text="9.50-11.25"/>
@@ -112,7 +112,7 @@
             <TextBlock Text="17.30-19.05"/>
             <TextBlock Text="19.20-20.55"/>
         </ComboBox>
-        <Button  Height="25"  Margin="0,0,0,-40" Content="Сохранить изменения" Command="{Binding saveCh}" Grid.Column="3"  />
+        <Button  Height="25"  Margin="0,0,0,-40" Content="Сохранить изменения" Command="{Binding saveCh}" Grid.Column="3" Style="{DynamicResource ButtonStyle}"  />
 
 
 

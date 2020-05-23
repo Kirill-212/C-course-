@@ -20,7 +20,7 @@ namespace course.Models
         [StringLength(50)]
         public string Логин { get; set; }
 
-        public int Пароль { get; set; }
+        public Guid Пароль { get; set; }
 
         [Column("e-maeil")]
         [Required]

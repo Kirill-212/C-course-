@@ -5,20 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:course.Views"
         mc:Ignorable="d"
-        Title="Tasks" Height="500" Width="1500" ResizeMode="NoResize" >
+        Title="Tasks" Height="500" Width="1500" ResizeMode="NoResize" Style="{DynamicResource WindowStyle}" >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <TextBlock Text="Название задачи" TextAlignment="Center"  Height="15" Margin="0,0,0,445" />
+        <TextBlock Text="Название задачи" TextAlignment="Center"  Height="15" Margin="0,0,0,445" Style="{DynamicResource TextBlockStyle}" />
         <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,405" Height="20"/>
 
-        <TextBlock Text="Полное описание" TextAlignment="Center" Margin="0,0,0,375" Height="15" />
+        <TextBlock Text="Полное описание" TextAlignment="Center" Margin="0,0,0,375" Height="15" Style="{DynamicResource TextBlockStyle}" />
         <TextBox Text="{Binding Full_name, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,330" Height="25"/>
 
-        <TextBlock Text="Периодичность" TextAlignment="Center"  Height="15" Margin="0,0,0,295" />
+        <TextBlock Text="Периодичность" TextAlignment="Center"  Height="15" Margin="0,0,0,295" Style="{DynamicResource TextBlockStyle}" />
         <ComboBox Text="{Binding Periodicity,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" FontSize="10" Height="19" Margin="0,0,0,255" IsReadOnly="True">
             <TextBlock Text="один раз"/>
             <TextBlock Text="раз в неделю"/>
@@ -27,7 +27,7 @@
         </ComboBox>
 
 
-        <TextBlock Text="Приоритет" TextAlignment="Center" Height="15"  Margin="0,0,0,210"   />
+        <TextBlock Text="Приоритет" TextAlignment="Center" Height="15"  Margin="0,0,0,210" Style="{DynamicResource TextBlockStyle}"   />
         <ComboBox Text="{Binding Priorety,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" FontSize="10" Height="19" Margin="0,0,0,160" IsReadOnly="True">
 
             <TextBlock Text="1"/>
@@ -40,40 +40,30 @@
 
             <TextBlock Text="5"/>
 
-            <TextBlock Text="6"/>
-
-            <TextBlock Text="7"/>
-
-            <TextBlock Text="8"/>
-
-            <TextBlock Text="9"/>
-
-            <TextBlock Text="10"/>
-
         </ComboBox>
 
-        <TextBlock Text="Дата:" Height="15" FontSize="10" Width="30" Margin="0,0,250,100" />
+        <TextBlock Text="Дата:" Height="15" FontSize="10" Width="30" Margin="0,0,250,100" Style="{DynamicResource TextBlockStyle}" />
         <DatePicker Text="{Binding Date,Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" Width="30" Height="40"  Margin="78,175,191,271"/>
 
 
-        <TextBlock x:Name="chek" Grid.Column="2" Text="{Binding StatusAddTask, UpdateSourceTrigger=PropertyChanged}" Margin="0,223,0,156" />
-        <Button  Height="25"  Margin="0,0,0,30" Content="Добавить задачу" Command="{Binding addTask}"  />
-        <Button  Height="25"  Margin="0,0,0,-40" Content="Показать" Command="{Binding viewcommand}"  />
-        <TextBlock  Grid.Row="0" Text="Вариант сортировки: " Height="25" MinWidth="95" Margin="0 0 0 -100" />
+        <TextBlock x:Name="chek" Grid.Column="2" Text="{Binding StatusAddTask, UpdateSourceTrigger=PropertyChanged}" Margin="0,223,0,156" Style="{DynamicResource TextBlockStyle}" />
+        <Button  Height="25"  Margin="0,0,0,30" Content="Добавить задачу" Command="{Binding addTask}" Style="{DynamicResource ButtonStyle}" />
+        <Button  Height="25"  Margin="0,0,0,-40" Content="Показать" Command="{Binding viewcommand}" Style="{DynamicResource ButtonStyle}" />
+        <TextBlock  Grid.Row="0" Text="Вариант сортировки: " Height="25" MinWidth="95" Margin="0 0 0 -100" Style="{DynamicResource TextBlockStyle}" />
         <ComboBox Grid.Row="0"  Margin="0 0 0 -140"  FontSize="10" Height="19" MinWidth="95" Text="{Binding SortIndex,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" >
             <TextBlock Text="По приоритету"/>
             <TextBlock Text="По названию"/>
             <TextBlock Text="По Дате"/>
             <TextBlock Text="По Статусу"/>
         </ComboBox>
-        <TextBlock  Grid.Row="0" Text="Варианты удаления: " Height="25" MinWidth="95" Margin="0 0 0 -190" />
+        <TextBlock  Grid.Row="0" Text="Варианты удаления: " Height="25" MinWidth="95" Margin="0 0 0 -190" Style="{DynamicResource TextBlockStyle}" />
         <ComboBox Grid.Row="0" FontSize="10" Height="19" Margin="0 0 0 -240"  MinWidth="95"  Text="{Binding DelIndex,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" >
             <TextBlock Text="Удалить всё"/>
             <TextBlock Text="Удалить выбранный элемент"/>
             <TextBlock Text="удалить всё,кроме сегодня"/>
         </ComboBox>
-        <Button  Height="25"  Margin="0,0,0,-310" Content="Выполнить удаление" Command="{Binding delCommand}"  />
-        <Button  Height="25"  Margin="0,0,0,-390" Content="Выполнил задачу" Command="{Binding ChangeCommand }"  />
+        <Button  Height="25"  Margin="0,0,0,-310" Content="Выполнить удаление" Command="{Binding delCommand}" Style="{DynamicResource ButtonStyle}" />
+        <Button  Height="25"  Margin="0,0,0,-390" Content="Выполнил задачу" Command="{Binding ChangeCommand }" Style="{DynamicResource ButtonStyle}"  />
 
 
 
@@ -95,38 +85,38 @@
 
 
         <ScrollViewer Grid.Column="1">
-            <StackPanel>
+            <StackPanel  Style="{DynamicResource StackPanelStyle}" >
                 <TextBlock  Margin="10" FontSize="22" FontWeight="Medium"/>
                 <StackPanel Margin="20 0">
                     <ListBox x:Name="ListViewProducts" ItemsSource="{Binding _Tasks,Mode=Default}" ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                             ScrollViewer.HorizontalScrollBarVisibility="Disabled"   SelectedIndex="{Binding SelectIndex}" SelectedItem="{Binding SelectedTasks}">
+                             ScrollViewer.HorizontalScrollBarVisibility="Disabled"   SelectedIndex="{Binding SelectIndex}"  Style="{DynamicResource ListBoxStyle}"  SelectedItem="{Binding SelectedTasks}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <Border Margin="10" Width="450" Height="auto" BorderThickness="2" BorderBrush="Black" >
                                     <StackPanel>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="Название: " />
-                                            <TextBlock Height="25" Text="{Binding  Название}"></TextBlock>
+                                            <TextBlock Text="Название: " Style="{DynamicResource TextBlockStyle}" />
+                                            <TextBlock Height="25" Text="{Binding  Название}"  Style="{DynamicResource TextBlockStyle}" ></TextBlock>
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="Дата: "/>
-                                            <TextBlock Height="25" Text="{Binding Дата}"></TextBlock>
+                                            <TextBlock Text="Дата: "  Style="{DynamicResource TextBlockStyle}" />
+                                            <TextBlock Height="25" Text="{Binding Дата}"  Style="{DynamicResource TextBlockStyle}" ></TextBlock>
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="Приоритет: "/>
-                                            <TextBlock Height="25"  TextWrapping ="Wrap" Text="{Binding Приоритет}"></TextBlock>
+                                            <TextBlock Text="Приоритет: "  Style="{DynamicResource TextBlockStyle}"  />
+                                            <TextBlock Height="25"  TextWrapping ="Wrap" Text="{Binding Приоритет}"  Style="{DynamicResource TextBlockStyle}" ></TextBlock>
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="Переодичность: "/>
-                                            <TextBlock Height="25" Text="{Binding Периодичность}"></TextBlock>
+                                            <TextBlock Text="Переодичность: "  Style="{DynamicResource TextBlockStyle}"  />
+                                            <TextBlock Height="25" Text="{Binding Периодичность}"  Style="{DynamicResource TextBlockStyle}"  ></TextBlock>
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="Полное описание: "/>
-                                            <TextBlock Height="150" Text="{Binding Полное_описание}"></TextBlock>
+                                            <TextBlock Text="Полное описание: "  Style="{DynamicResource TextBlockStyle}"   />
+                                            <TextBlock Height="150" Text="{Binding Полное_описание}" Style="{DynamicResource TextBlockStyle}"    ></TextBlock>
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="Статус: "/>
-                                            <TextBlock Height="25" Text="{Binding Status}"></TextBlock>
+                                            <TextBlock Text="Статус: "  Style="{DynamicResource TextBlockStyle}"  />
+                                            <TextBlock Height="25" Text="{Binding Status}"  Style="{DynamicResource TextBlockStyle}"  ></TextBlock>
                                         </StackPanel>
 
                                     </StackPanel>
@@ -140,12 +130,11 @@
 
 
         <StackPanel Grid.Column="3" >
-            <TextBlock Text="Выбранный элемент" Height="15"  />
-            <TextBlock Text="Название" Height="15" />
+            <TextBlock Text="Название" Height="15" Style="{DynamicResource TextBlockStyle}" />
             <TextBox Text="{Binding Name1}" Height="15" />
-            <TextBlock Text="Полное описание" Height="15" />
+            <TextBlock Text="Полное описание" Height="15" Style="{DynamicResource TextBlockStyle}" />
             <TextBox Text="{Binding Full_name1}" Height="15" />
         </StackPanel>
-        <Button  Height="25"  Margin="0,0,0,200" Content="Сохранить изменения" Command="{Binding saveCommand}" Grid.Column="3" />
+        <Button  Height="25"  Margin="0,0,0,200" Content="Сохранить изменения" Command="{Binding saveCommand}" Grid.Column="3" Style="{DynamicResource ButtonStyle}" />
     </Grid>
 </Window>

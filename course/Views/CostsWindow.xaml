@@ -5,18 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:course.Views"
         mc:Ignorable="d"
-        Title="CostsWindow" Height="500" Width="1500" ResizeMode="NoResize">
+        Title="CostsWindow" Height="500" Width="1500" ResizeMode="NoResize" Style="{DynamicResource WindowStyle}">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Text="Название товара(группа товаров)" TextAlignment="Center"  Height="15" Margin="0,0,0,440" />
+        <TextBlock Text="Название товара(группа товаров)" TextAlignment="Center"  Height="15" Margin="0,0,0,440" Style="{DynamicResource TextBlockStyle}" />
         <TextBox Text="{Binding Name_costs, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,400" Height="20"/>
-        <TextBlock Text="Стоимость товара($)" TextAlignment="Center"  Height="15" Margin="0,0,0,340" />
+        <TextBlock Text="Стоимость товара($)" TextAlignment="Center"  Height="15" Margin="0,0,0,340" Style="{DynamicResource TextBlockStyle}" />
         <TextBox Text="{Binding Cost, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,300" Height="20"/>
-        <TextBlock Text="Периодичность" TextAlignment="Center"  Height="15" Margin="0,0,0,250" />
+        <TextBlock Text="Периодичность" TextAlignment="Center"  Height="15" Margin="0,0,0,250" Style="{DynamicResource TextBlockStyle}" />
         <ComboBox Text="{Binding Periodicity_costs, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" Height="20" Margin="0,0,0,200" IsReadOnly="True">
             <TextBlock Text="1 раз в неделю"/>
             <TextBlock Text="2 раза в неделю"/>
@@ -25,34 +25,34 @@
             <TextBlock Text="2 раза в месяц"/>
             <TextBlock Text="3 раза в месяц"/>
         </ComboBox>
-        <Button  Height="30"  Margin="0,0,0,-40" Content="Добавить" Command="{Binding AddCosts}"  />
-        <Button  Height="30"  Margin="0,0,0,-120" Content="Показать" Command="{Binding viewCosts}"  />
-        <Button  Height="30"  Margin="0,0,0,40" Content="Удалить выбранный элемент" Command="{Binding AddCostsCommand}"  />
-        <Button  Height="30"  Margin="0,0,0,-190" Content="Удалить всё" Command="{Binding DelAllCostsCommand}"  />
+        <Button  Height="30"  Margin="0,0,0,-40" Content="Добавить" Command="{Binding AddCosts}" Style="{DynamicResource ButtonStyle}"   />
+        <Button  Height="30"  Margin="0,0,0,-120" Content="Показать" Command="{Binding viewCosts}" Style="{DynamicResource ButtonStyle}"  />
+        <Button  Height="30"  Margin="0,0,0,40" Content="Удалить выбранный элемент" Command="{Binding AddCostsCommand}" Style="{DynamicResource ButtonStyle}"  />
+        <Button  Height="30"  Margin="0,0,0,-190" Content="Удалить всё" Command="{Binding DelAllCostsCommand}" Style="{DynamicResource ButtonStyle}"  />
 
 
 
         <ScrollViewer Grid.Column="1">
-            <StackPanel>
+            <StackPanel Style="{DynamicResource StackPanelStyle}"  >
                 <TextBlock  Margin="10" FontSize="22" FontWeight="Medium"/>
                 <StackPanel Margin="20 0">
                     <ListBox x:Name="ListViewProducts" ItemsSource="{Binding  _Costs,Mode=Default}" ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                             ScrollViewer.HorizontalScrollBarVisibility="Disabled"   SelectedIndex="{Binding SelectIndexC}"  SelectedItem="{Binding SelectedCosts}">
+                             ScrollViewer.HorizontalScrollBarVisibility="Disabled"   SelectedIndex="{Binding SelectIndexC}"  Style="{DynamicResource ListBoxStyle}"  SelectedItem="{Binding SelectedCosts}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <Border Margin="10" Width="450" Height="auto" BorderThickness="2" BorderBrush="Black" >
                                     <StackPanel>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="Группа товаров:" />
-                                            <TextBlock Height="25" Text="{Binding  Группы_товара}"></TextBlock>
+                                            <TextBlock Text="Группа товаров:" Style="{DynamicResource TextBlockStyle}" />
+                                            <TextBlock Height="25" Text="{Binding  Группы_товара}"  Style="{DynamicResource TextBlockStyle}" ></TextBlock>
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="Стоимость: "/>
-                                            <TextBlock Height="25" Text="{Binding Стоимость}"></TextBlock>
+                                            <TextBlock Text="Стоимость: "  Style="{DynamicResource TextBlockStyle}" />
+                                            <TextBlock Height="25" Text="{Binding Стоимость}" Style="{DynamicResource TextBlockStyle}" ></TextBlock>
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="Периодичность: "/>
-                                            <TextBlock Height="25" Text="{Binding Периодиность}"></TextBlock>
+                                            <TextBlock Text="Периодичность: "  Style="{DynamicResource TextBlockStyle}" />
+                                            <TextBlock Height="25" Text="{Binding Периодиность}"  Style="{DynamicResource TextBlockStyle}" ></TextBlock>
                                         </StackPanel>
                                         
                                     </StackPanel>
@@ -64,23 +64,23 @@
             </StackPanel>
         </ScrollViewer>
 
-        <TextBlock x:Name="chek" Grid.Column="2" Text="{Binding StatusCosts, UpdateSourceTrigger=PropertyChanged}" Height="40" Margin="0,0,0,-190" />
+        <TextBlock x:Name="chek" Grid.Column="2" Text="{Binding StatusCosts, UpdateSourceTrigger=PropertyChanged}" Height="40" Margin="0,0,0,-190" Style="{DynamicResource TextBlockStyle}" />
 
         <StackPanel Grid.Column="3" >
-            <TextBlock Text="Группа товарва" />
-            <TextBox Height="25" Text="{Binding  Name_costsC , UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Text="Стоимость: "/>
-            <TextBox Height="25" Text="{Binding CostC , UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Text="Периодичность" TextAlignment="Center"  Height="15" Margin="0,0,0,20" />
+            <TextBlock Text="Группа товарва" Style="{DynamicResource TextBlockStyle}" />
+            <TextBox Height="25" Text="{Binding  Name_costsC , UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Text="Стоимость: " Style="{DynamicResource TextBlockStyle}" />
+            <TextBox Height="25" Text="{Binding CostC , UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Text="Периодичность" TextAlignment="Center"  Height="15" Margin="0,0,0,20" Style="{DynamicResource TextBlockStyle}" />
             <ComboBox Text="{Binding Periodicity_costsC, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" Height="20" Margin="0,0,0,200" IsReadOnly="True">
-                <TextBlock Text="1 раз в неделю"/>
-                <TextBlock Text="2 раза в неделю"/>
-                <TextBlock Text="3 раза в неделю"/>
-                <TextBlock Text="1 раз в месяц"/>
-                <TextBlock Text="2 раза в месяц"/>
-                <TextBlock Text="3 раза в месяц"/>
+                <TextBlock Text="1 раз в неделю" />
+                <TextBlock Text="2 раза в неделю" />
+                <TextBlock Text="3 раза в неделю" />
+                <TextBlock Text="1 раз в месяц" />
+                <TextBlock Text="2 раза в месяц" />
+                <TextBlock Text="3 раза в месяц" />
             </ComboBox> 
         </StackPanel>
-        <Button  Height="30"  Margin="0,0,0,20" Content="Сохранить изменения" Command="{Binding ChangeCostsCommand}" Grid.Column="3" />
+        <Button  Height="30"  Margin="0,0,0,20" Content="Сохранить изменения" Command="{Binding ChangeCostsCommand}" Grid.Column="3" Style="{DynamicResource ButtonStyle}" />
     </Grid>
 </Window>

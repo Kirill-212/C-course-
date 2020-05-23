@@ -9,12 +9,14 @@ namespace course.ViewModels.Tasks
 {
     class DelCommand: ICommand
     {
-        public event EventHandler CanExecuteChanged;
         private Action _execute;
         public DelCommand(Action execute)
         {
             _execute = execute;
         }
+
+        public event EventHandler CanExecuteChanged;
+
         public bool CanExecute(object parameter)
         {
             return true;

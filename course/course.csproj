@@ -74,16 +74,31 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Расписание.cs" />
     <Compile Include="Models\Расходы.cs" />
+    <Compile Include="Repository\DateRepository.cs" />
+    <Compile Include="Repository\taskRepository.cs" />
+    <Compile Include="Repository\UnitOfWork.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
+    <Compile Include="Repository\РасписаниеRepository.cs" />
+    <Compile Include="Repository\РасходыRepository.cs" />
     <Compile Include="ViewModels\costs\AddCostsCommand.cs" />
     <Compile Include="ViewModels\costs\ChangeCostsCommand.cs" />
     <Compile Include="ViewModels\costs\DelAllCostsCommand.cs" />
     <Compile Include="ViewModels\costs\DelCostsCommand.cs" />
     <Compile Include="ViewModels\costs\OpenCostsCommand.cs" />
     <Compile Include="ViewModels\costs\ViewCostsCommand.cs" />
+    <Compile Include="ViewModels\EntranceOrRegister\OpenWindowsCommand.cs" />
+    <Compile Include="ViewModels\main\AdminCommand.cs" />
+    <Compile Include="ViewModels\main\ChangeTaskCommand.cs" />
+    <Compile Include="ViewModels\main\OpenAdminCommand.cs" />
+    <Compile Include="ViewModels\main\SendMesCostsCommand.cs" />
+    <Compile Include="ViewModels\main\SendMesTaskCommand.cs" />
+    <Compile Include="ViewModels\main\SendMesTimeTableCommand.cs" />
+    <Compile Include="ViewModels\main\ViewAdminCommand.cs" />
     <Compile Include="ViewModels\main\ViewMainCommand.cs" />
     <Compile Include="ViewModels\Tasks\AddTaskCommand.cs" />
     <Compile Include="ViewModels\Tasks\ChangeCommand.cs" />
     <Compile Include="ViewModels\Tasks\DelCommand.cs" />
+    <Compile Include="ViewModels\Tasks\OpenTaskWin.cs" />
     <Compile Include="ViewModels\Tasks\SaveCommand.cs" />
     <Compile Include="ViewModels\Tasks\ViewCommand.cs" />
     <Compile Include="ViewModels\timetable\AddSubCommand.cs" />
@@ -92,6 +107,9 @@
     <Compile Include="ViewModels\timetable\SaveChCommand.cs" />
     <Compile Include="ViewModels\timetable\TimeTableR.cs" />
     <Compile Include="ViewModels\timetable\ViewTimeTableCommand.cs" />
+    <Compile Include="Views\Admin.xaml.cs">
+      <DependentUpon>Admin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CostsWindow.xaml.cs">
       <DependentUpon>CostsWindow.xaml</DependentUpon>
     </Compile>
@@ -109,6 +127,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Style\Light.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -169,6 +191,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram3.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

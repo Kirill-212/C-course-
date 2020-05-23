@@ -24,7 +24,7 @@ namespace course
     
     public partial class MainWindow : Window     
     {
-        public static ModelDATABASE modelDATABASE = new ModelDATABASE();
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -39,10 +39,6 @@ namespace course
 
 
 
-        private void OpenWinReg(object sender, RoutedEventArgs e)
-        {
-            Recording recording = new Recording();
-            recording.ShowDialog();
-        }
+
     }
 }

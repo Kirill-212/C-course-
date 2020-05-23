@@ -25,6 +25,6 @@
             <TextBlock x:Name="chek" Text="{Binding Authorization, UpdateSourceTrigger=PropertyChanged}" Foreground="White"  ></TextBlock>
         </StackPanel>
         <Button x:Name="button2" Height="30" Width="250" Margin="0 0 0 0" Content="Вход"  Foreground="White" Background="Black" Grid.Row="1" Command="{Binding entrance}" />
-        <Button x:Name="button1" Height="30" Width="250" Margin="0 100 0 0" Content="Регистрация"  Foreground="White" Background="Black" Grid.Row="1" Click="OpenWinReg"  />
+        <Button x:Name="button1" Height="30" Width="250" Margin="0 100 0 0" Content="Регистрация"  Foreground="White" Background="Black" Grid.Row="1" Command="{Binding OpenWindowsCommand1}"  />
     </Grid>
 </Window>

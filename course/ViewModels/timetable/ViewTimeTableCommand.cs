@@ -9,12 +9,14 @@ namespace course.ViewModels.timetable
 {
     class ViewTimeTableCommand : ICommand
     {
-        public event EventHandler CanExecuteChanged;
         private Action _execute;
         public ViewTimeTableCommand(Action execute)
         {
             _execute = execute;
         }
+
+        public event EventHandler CanExecuteChanged;
+
         public bool CanExecute(object parameter)
         {
             return true;

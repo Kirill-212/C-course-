@@ -9,12 +9,14 @@ namespace course.ViewModels.costs
 {
     class ViewCostsCommand : ICommand
     {
-        public event EventHandler CanExecuteChanged;
         private Action _execute;
         public ViewCostsCommand(Action execute)
         {
             _execute = execute;
         }
+
+        public event EventHandler CanExecuteChanged;
+
         public bool CanExecute(object parameter)
         {
             return true;
